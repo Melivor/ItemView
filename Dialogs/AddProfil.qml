@@ -1,7 +1,7 @@
 import QtQuick 2.12
 //import QtQuick.Dialogs 1.2
 import QtQuick.Controls 2.13
-import "../Style"
+import "qrc:/Style"
 import QtQuick.Layouts 1.3
 
 Dialog {

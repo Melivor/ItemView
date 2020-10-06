@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.13
-import "../../Style"
-import "qrc:/Qml/CustomType"
+import "qrc:/Style"
+import "qrc:/CustomType"
 import QtQuick.Layouts 1.12
 Item{
     id:row
