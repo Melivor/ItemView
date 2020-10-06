@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import "qrc:/Style"
+import QtQuick.Controls 2.12
 CheckBox {
     property bool editable: false
     property string toolTip: model.description?model.description:""

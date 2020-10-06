@@ -1,6 +1,5 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.13
-import "qrc:/Style"
 import "qrc:/VariousCustomTypes"
 import QtQuick.Layouts 1.12
 Item{
@@ -54,7 +53,7 @@ Item{
         // font.bold:true
          hoverEnabled: true
          text:qsTr("test connection")
-         textColor: horusTheme.standardBlue
+         textColor: HorusTheme.standardBlue
          onClicked: {
              //printSender.stopListenning()
              loaderDialog.setSource("qrc:/Qml/Dialogs/StateDialogs/ConnectingPrinter.qml", {"receptorItem":root, "hostname":value})

@@ -1,8 +1,9 @@
 import QtQuick 2.12
 //import QtQuick.Dialogs 1.2
 import QtQuick.Controls 2.13
-import "qrc:/Style"
+
 import QtQuick.Layouts 1.3
+import "qrc:/import"
 
 Dialog {
     modal: true
@@ -37,11 +38,11 @@ Dialog {
             //anchors.top:parent.bottom
             //anchors.topMargin: 20
             //anchors.horizontalCenter: parent.horizontalCenter
-            spacing:horusTheme.baseSpacing
+            spacing:HorusTheme.baseSpacing
 
             RowLayout{
-                spacing: horusTheme.baseSpacing
-                Layout.leftMargin: horusTheme.baseMargin
+                spacing: HorusTheme.baseSpacing
+                Layout.leftMargin: HorusTheme.baseMargin
                // width: column.width
             Text {
                 id: text1
@@ -57,8 +58,8 @@ Dialog {
             }
             }
             RowLayout{
-                Layout.leftMargin: horusTheme.baseMargin
-                spacing: horusTheme.baseSpacing
+                Layout.leftMargin: HorusTheme.baseMargin
+                spacing: HorusTheme.baseSpacing
                 Text{
                     text:qsTr("Description: ")
                     Layout.alignment: Qt.AlignTop

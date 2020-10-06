@@ -1,9 +1,10 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.12
-import "qrc:/Style"
+//
 import "qrc:/VariousCustomTypes"
 import "Dialogs"
+import "qrc:/import"
 
 
 Item {
@@ -23,19 +24,21 @@ Item {
         Rectangle{
             SplitView.fillHeight: true
             SplitView.preferredWidth: 350
-            color:horusTheme.backgroundColor
+            color:HorusTheme.backgroundColor
             Text{
                 id:title
                 font.pointSize: 12
                 text:advProfilView.title
+                color:palette.text
                 anchors.left: parent.left
-                anchors.leftMargin: parent.width*horusTheme.sectionMarginFactor
+                anchors.leftMargin: parent.width*HorusTheme.sectionMarginFactor
                 anchors.top:parent.top
                 anchors.topMargin: 20
                 anchors.right:parent.right
-                anchors.rightMargin: parent.width*horusTheme.baseMarginFactor
+                anchors.rightMargin: parent.width*HorusTheme.baseMarginFactor
             }
             TextField{
+
                 id:searchField
                 anchors.left:title.left
                 anchors.right: title.right
@@ -52,8 +55,8 @@ Item {
                 Rectangle{
                     anchors.fill:listView
                     anchors.rightMargin: 10
-                    radius: horusTheme.baseRadius
-                    border.color: horusTheme.borderColor
+                    radius: HorusTheme.baseRadius
+                    border.color: HorusTheme.borderColor
                     z:-1
                 }
                 anchors.top:searchField.bottom
@@ -62,9 +65,9 @@ Item {
                 anchors.bottomMargin: 20
                 model:advProfilView.modelExplorer
 
-                // anchors.leftMargin: parent.width*horusTheme.baseMarginFactor
+                // anchors.leftMargin: parent.width*HorusTheme.baseMarginFactor
                 anchors.right: title.right
-                // anchors.rightMargin: parent.width*horusTheme.baseMarginFactor
+                // anchors.rightMargin: parent.width*HorusTheme.baseMarginFactor
                 anchors.bottom: buttonAdd.top
 
                 id:listView
@@ -85,10 +88,10 @@ Item {
                     // visible: model.match(index,"display","slicr").size>0
                     Rectangle{
                         anchors.fill:parent
-                        color:modelExplorer.row%2==0?horusTheme.backgroundColor:horusTheme.foregroundColor
-                        radius: horusTheme.baseRadius
+                        color:modelExplorer.row%2==0?HorusTheme.backgroundColor:HorusTheme.foregroundColor
+                        radius: HorusTheme.baseRadius
 
-                        border.color: listView.currentIndex==index?horusTheme.standardBlue:horusTheme.borderColor
+                        border.color: listView.currentIndex==index?HorusTheme.standardBlue:HorusTheme.borderColor
                     }
                     MouseArea{
                         id:mouseArea
@@ -104,15 +107,16 @@ Item {
                         //height: 20
                         id:text
                         anchors.left: parent.left
-                        anchors.leftMargin: parent.width*horusTheme.baseMarginFactor
+                        anchors.leftMargin: parent.width*HorusTheme.baseMarginFactor
                         anchors.verticalCenter: parent.verticalCenter
                         text:model.display
+                        color:palette.text
                     }
                 }
             }
             Button{
                 id:buttonAdd
-                textColor: horusTheme.textColor
+                //textColor: palette.text
                 text:qsTr("Add")
                 anchors.bottom: addFromWebButton.top
                 anchors.bottomMargin: 10
@@ -129,7 +133,7 @@ Item {
             TextButton{
                 id:addFromWebButton
                 text:qsTr("More online")
-                textColor:horusTheme.standardBlue
+                textColor:HorusTheme.standardBlue
                 anchors.right: title.right
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 20
@@ -145,7 +149,7 @@ Item {
 
             // SplitView.fillWidth: true
             Rectangle{
-                color:horusTheme.backgroundColor
+                color:HorusTheme.backgroundColor
                 anchors.fill:parent
             }
 
@@ -154,18 +158,19 @@ Item {
                 font.pointSize: 12
                 text:listView.currentModel?listView.currentModel.name:""
                 anchors.left: parent.left
-                anchors.leftMargin: horusTheme.sectionMargin
+                anchors.leftMargin: HorusTheme.sectionMargin
                 anchors.top:parent.top
                 anchors.topMargin: 20
                 anchors.right:parent.right
-                anchors.rightMargin: parent.width*horusTheme.baseMarginFactor
+                anchors.rightMargin: parent.width*HorusTheme.baseMarginFactor
+                color:palette.text
             }
 
             TextButton{
                 text:qsTr("Delete this profil")
                 anchors.right:rect.right
                 anchors.top:currentProfil.top
-                textColor: horusTheme.standardRed
+                textColor: HorusTheme.standardRed
                 onClicked:  loaderDialog.setSource("Dialogs/DeleteProfil.qml",{"model":advProfilView.modelExplorer})
             }
             Rectangle{
@@ -176,20 +181,20 @@ Item {
                 anchors.topMargin: 20
                 anchors.right:parent.right
                 anchors.rightMargin: 20
-                color:horusTheme.foregroundColor
+                color:HorusTheme.foregroundColor
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: horusTheme.baseMargin
-                radius: horusTheme.baseRadius
-                border.color: horusTheme.borderColor
+                anchors.bottomMargin: HorusTheme.baseMargin
+                radius: HorusTheme.baseRadius
+                border.color: HorusTheme.borderColor
                 Flow{
                     id:root
                     anchors.top:parent.top
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.leftMargin: horusTheme.baseMargin
-                    anchors.rightMargin: horusTheme.baseMargin
-                    anchors.topMargin: horusTheme.baseMargin
+                    anchors.leftMargin: HorusTheme.baseMargin
+                    anchors.rightMargin: HorusTheme.baseMargin
+                    anchors.topMargin: HorusTheme.baseMargin
 
 
                     //columns: 8
@@ -198,10 +203,10 @@ Item {
                     //anchors.fill:parent
                     //anchors.margins: 20
                     flow:Flow.TopToBottom
-                    // columnSpacing: horusTheme.baseSpacing
-                    //rowSpacing:  horusTheme.baseSpacing
+                    // columnSpacing: HorusTheme.baseSpacing
+                    //rowSpacing:  HorusTheme.baseSpacing
                     //rows:3
-                    spacing: horusTheme.baseSpacing/2
+                    spacing: HorusTheme.baseSpacing/2
                     Repeater {
                         id:repeater
                         model:advProfilView.modelExplorer.currentModel.sections.length
@@ -219,20 +224,21 @@ Item {
                                 Text{
                                     text:advProfilView.modelExplorer.currentModel.sections[index].name
                                     font.pointSize: 10
+                                    color:palette.text
                                 }
                                 Rectangle{
                                     //anchors.fill:advlistView
-                                    border.color: horusTheme.borderColor
-                                    color: horusTheme.backgroundColor
-                                    radius: horusTheme.baseRadius
+                                    border.color: HorusTheme.borderColor
+                                    color: HorusTheme.backgroundColor
+                                    radius: HorusTheme.baseRadius
                                     z:-1
-                                    implicitWidth:advListView.width+horusTheme.baseMargin
-                                    implicitHeight: advListView.height+horusTheme.baseMargin
+                                    implicitWidth:advListView.width+HorusTheme.baseMargin
+                                    implicitHeight: advListView.height+HorusTheme.baseMargin
 
                                     ItemListView{
                                         id:advListView
-                                        // x:horusTheme.baseMargin
-                                        y:horusTheme.baseMargin/2
+                                        // x:HorusTheme.baseMargin
+                                        y:HorusTheme.baseMargin/2
                                         x:20
                                         height: Math.min(contentHeight,root.height-100)
                                         model:advProfilView.modelExplorer.currentModel.sections[index]
@@ -251,18 +257,19 @@ Item {
         Rectangle{
             id:detailsRect
             Layout.preferredWidth: 200
-            color: horusTheme.backgroundColor
+            color: HorusTheme.backgroundColor
             property var modelItem
             Text{
                 id:details
                 font.pointSize: 12
                 text:qsTr("Details")
                 anchors.left: parent.left
-                anchors.leftMargin: horusTheme.sectionMargin
+                anchors.leftMargin: HorusTheme.sectionMargin
                 anchors.top:parent.top
                 anchors.topMargin: 20
                 anchors.right:parent.right
-                anchors.rightMargin: parent.width*horusTheme.baseMarginFactor
+                anchors.rightMargin: parent.width*HorusTheme.baseMarginFactor
+                color:palette.text
             }
             Rectangle{
 
@@ -272,20 +279,20 @@ Item {
                 anchors.topMargin: 20
                 anchors.right:parent.right
                 anchors.rightMargin: 20
-                color:horusTheme.foregroundColor
+                color:HorusTheme.foregroundColor
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: horusTheme.baseMargin
-                radius: horusTheme.baseRadius
-                border.color: horusTheme.borderColor
+                anchors.bottomMargin: HorusTheme.baseMargin
+                radius: HorusTheme.baseRadius
+                border.color: HorusTheme.borderColor
                 Flow{
                     anchors.fill:parent
-                    anchors.margins: horusTheme.baseMargin
-                    spacing: horusTheme.baseSpacing
+                    anchors.margins: HorusTheme.baseMargin
+                    spacing: HorusTheme.baseSpacing
                     Text{
                         text:detailsRect.modelItem?detailsRect.modelItem.description+"  ":""
                         width:parent.width
                         wrapMode: Text.Wrap
-
+                        color:palette.text
                         //text:advListView.currentItem.description
                     }
                     Text{
@@ -293,31 +300,24 @@ Item {
                         width:parent.width
                         wrapMode: Text.Wrap
                         visible: detailsRect.modelItem?detailsRect.modelItem.min!==detailsRect.modelItem.max:false
+                        color:palette.text
                     }
                     Text{
                         text:detailsRect.modelItem?"max value is: "+detailsRect.modelItem.max+" ":""
                         width:parent.width
                         wrapMode: Text.Wrap
                         visible: detailsRect.modelItem?detailsRect.modelItem.min!==detailsRect.modelItem.max:false
+                        color:palette.text
                     }
                     Text{
                         text:detailsRect.modelItem?"unit is: "+detailsRect.modelItem.unit+"    ":""
                         width:parent.width
                         wrapMode: Text.Wrap
                         visible: detailsRect.modelItem?detailsRect.modelItem.unit!=="":false
+                        color:palette.text
                     }
                 }
             }
-
-            // Layout.preferredHeight: rect.height-2*horusTheme.baseMargin
-            //Layout.preferredWidth: 400
-            //Layout.column: (rect3.bottom+rect4.height)>parent.bottom?rect3.Layout.column+1:rect3.Layout.column
-            //  implicitWidth: 600
-            //  implicitHeight: rect.height-2*horusTheme.baseMargin
-            // border.color: horusTheme.borderColor
-            //color:horusTheme.backgroundColor
-            //radius:horusTheme.baseRadius
-            // Layout.columnSpan: 2
 
         }
 

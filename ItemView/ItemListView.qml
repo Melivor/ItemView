@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.13
-import "qrc:/Style"
+//
 import QtQuick.Layouts 1.12
 import "Items"
 
@@ -13,7 +13,7 @@ ListView {
     property bool editable:true
     height:contentHeight
     ScrollBar.vertical:ScrollBar{
-        policy: listView.height===listView.contentHeight?ScrollBar.AlwaysOff:ScrollBar.AlwaysOn
+        policy: listView.height>=listView.contentHeight?ScrollBar.AlwaysOff:ScrollBar.AlwaysOn
     }
     delegate:
         Item{
@@ -57,6 +57,7 @@ ListView {
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
                 verticalAlignment: Text.AlignVCenter
                 Component.onCompleted:generateHeader()
+                color:palette.text
             }
             Loader{
                 id:loader
