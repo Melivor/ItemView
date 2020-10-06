@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.12
 import "qrc:/Style"
-import "qrc:/CustomType"
+import "qrc:/VariousCustomTypes"
 import "Dialogs"
 
 
@@ -121,7 +121,7 @@ Item {
                 anchors.rightMargin: 10
                 highlighted: true
                 onClicked: {
-                    loaderDialog.setSource("AddProfil.qml",{"model":advProfilView.modelExplorer})
+                    loaderDialog.setSource("Dialogs/AddProfil.qml",{"model":advProfilView.modelExplorer})
                     // loaderDialog.Dialog.item.model=model
                 }
 
@@ -166,7 +166,7 @@ Item {
                 anchors.right:rect.right
                 anchors.top:currentProfil.top
                 textColor: horusTheme.standardRed
-                onClicked:  loaderDialog.setSource("DeleteProfil.qml",{"model":advProfilView.modelExplorer})
+                onClicked:  loaderDialog.setSource("Dialogs/DeleteProfil.qml",{"model":advProfilView.modelExplorer})
             }
             Rectangle{
                 id:rect
