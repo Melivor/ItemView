@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ItemView/ItemListView.qml</file>
+        <file>ItemView/ItemViewExplorer.qml</file>
+        <file>ItemView/Dialogs/AddProfil.qml</file>
+        <file>ItemView/Dialogs/DeleteProfil.qml</file>
+        <file>ItemView/Items/BoundNumberField.qml</file>
+        <file>ItemView/Items/CheckBox.qml</file>
+        <file>ItemView/Items/ColorField.qml</file>
+        <file>ItemView/Items/ComboBox.qml</file>
+        <file>ItemView/Items/HostName.qml</file>
+        <file>ItemView/Items/NumberField.qml</file>
+        <file>ItemView/Items/TextArea.qml</file>
+        <file>ItemView/Items/TextField.qml</file>
+    </qresource>
+</RCC>
