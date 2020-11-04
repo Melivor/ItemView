@@ -1,0 +1,4 @@
+
+Slider {
+    stepSize: 1
+}

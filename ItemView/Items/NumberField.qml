@@ -10,8 +10,9 @@ TextField
     text:Number(model.display).toLocaleString(Qt.locale(),"f")
     anchors.right: parent.right
     function post(){
-        model.display=Number.fromLocaleString(value)
+        model.display=Number.fromLocaleString(text)
     }
+    onEditingFinished: post()
 
     PlaceholderText {
         id: placeholder
