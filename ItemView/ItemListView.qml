@@ -15,6 +15,10 @@ ListView {
     ScrollBar.vertical:ScrollBar{
         policy: listView.height>=listView.contentHeight?ScrollBar.AlwaysOff:ScrollBar.AlwaysOn
     }
+    Control{
+        id:control
+    }
+
     delegate:
         Item{
         id:containerItem
@@ -57,7 +61,7 @@ ListView {
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
                 verticalAlignment: Text.AlignVCenter
                 Component.onCompleted:generateHeader()
-                color:palette.text
+                color:control.palette.text
             }
             Loader{
                 id:loader
