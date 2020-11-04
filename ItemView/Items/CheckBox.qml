@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 CheckBox {
-    property bool editable: false
+    property bool editable: model.flags&Qt.ItemIsEditable
     property string toolTip: model.description?model.description:""
     property var initialValue
     property var model:parent.dmodel

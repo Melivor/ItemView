@@ -36,7 +36,7 @@ TextField
 //        implicitHeight: 30
 //        border.width: control.activeFocus ? 2 : 1
 //        color: control.palette.base
-//        border.color: control.activeFocus ? control.palette.highlight :control.palette.mid
+//        border.color: control.activeFocus ?palette.highlight :palette.mid
 //        radius: 10
 //        Text{
 //            anchors.right: parent.right

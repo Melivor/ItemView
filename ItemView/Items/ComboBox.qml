@@ -7,6 +7,7 @@ ComboBox {
     property var rootModel: parent.dmodel
      property string toolTip: rootModel.description?rootModel.description:""
     property var value:rootModel.display
+    editable: model.flags&Qt.ItemIsEditable
     function post(){
         rootModel.display=value
     }
@@ -15,8 +16,8 @@ ComboBox {
     }
 
     id:comboBox
-    horizontalAlignement: Text.AlignLeft
-    implicitHeight: 30
+    //horizontalAlignement: Text.AlignLeft
+    //implicitHeight: 30
     implicitWidth: 110
     model:rootModel.choiceList
     currentIndex:value

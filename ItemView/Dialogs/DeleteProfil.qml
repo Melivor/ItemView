@@ -1,15 +1,17 @@
-
 import QtQuick 2.12
-import QtQuick.Controls 2.13
+import QtQuick.Dialogs 1.2
 
-import "qrc:/VariousCustomTypes"
-import QtQuick.Layouts 1.3
 
-ConfirmationDialog
-{
+MessageDialog {
+    id: messageDialog
+    title: qsTr("Warning")
+    text: qsTr("Are you sure you want to delete ")+model.currentModel.name+" ?"
+    icon:StandardIcon.Warning
     property var model
-    function validate(){
+    standardButtons: StandardButton.Yes | StandardButton.No
+    onYes: {
         model.deleteCurrentSelection()
         loaderDialog.source=""
     }
+    onNo: loaderDialog.source=""
 }

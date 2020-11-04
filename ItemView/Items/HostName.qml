@@ -53,7 +53,7 @@ Item{
         // font.bold:true
          hoverEnabled: true
          text:qsTr("test connection")
-         textColor: HorusTheme.standardBlue
+         textColor: palette.highlight
          onClicked: {
              //printSender.stopListenning()
              loaderDialog.setSource("qrc:/Qml/Dialogs/StateDialogs/ConnectingPrinter.qml", {"receptorItem":root, "hostname":value})

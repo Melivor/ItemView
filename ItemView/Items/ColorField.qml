@@ -10,7 +10,7 @@ Rectangle{
     //anchors.topMargin: height/2
     property var model:parent.dmodel
 
-    property bool editable: false
+    property bool editable: model.flags&Qt.ItemIsEditable
     property bool hovered:false
     property string toolTip: model.description?model.description:""
     property var value:model.display
@@ -20,7 +20,9 @@ Rectangle{
     function cancel(){
         value=model.display
     }
-    border.width: hovered?1.2:0
+    //border.width: hovered?1.2:0
+    border.color: hovered?palette.highlight:palette.mid
+    border.width: 2
     color:value
     implicitWidth:50
     implicitHeight: 20
@@ -51,9 +53,11 @@ Rectangle{
              onExited: hovered=false
              onClicked: {
                  if(editable){
-                    colorDialog.color=root.parent.delegateModel.display
+                    colorDialog.color=model.display
                     colorDialog.open()
+                     console.log("Editing color !")
                  }
+
              }
          }
 }

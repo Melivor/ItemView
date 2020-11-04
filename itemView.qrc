@@ -12,5 +12,7 @@
         <file>ItemView/Items/NumberField.qml</file>
         <file>ItemView/Items/TextArea.qml</file>
         <file>ItemView/Items/TextField.qml</file>
+        <file>ItemView/ItemFlowViewBySection.qml</file>
+        <file>ItemView/ItemListViewBySection.qml</file>
     </qresource>
 </RCC>
