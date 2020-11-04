@@ -1,19 +1,22 @@
 import QtQuick 2.12
-
+import QtQuick.Controls 2.12
 Rectangle{
+    Control{
+        id:control
+    }
+
     id:rect
     property var model
     property int baseMargin: 10
     signal editingSetting(var index)
-    color:palette.base
-    border.color: palette.mid
+    color:control.palette.base
+    border.color: control.palette.mid
     radius: 5
     implicitWidth: 200
     implicitHeight: 500
     property int sectionNamePointSize: 8
     property int unfoldHeight:root.contentHeight+rect.baseMargin*2
     //property int contentHeight: rect.model.sections.length*(rect.baseMargin*2+rect.baseMargin
-
 
     ListView{
         id:root
@@ -30,6 +33,9 @@ Rectangle{
         model:rect.model.sections
         clip:true
         boundsBehavior: Flickable.StopAtBounds
+        ScrollBar.vertical:ScrollBar{
+            policy: root.height>=root.contentHeight?ScrollBar.AlwaysOff:ScrollBar.AlwaysOn
+        }
         delegate:
             Item{
             //Layout.preferredHeight:childrenRect.height
@@ -42,12 +48,12 @@ Rectangle{
                     id:label
                     text:modelData.name
                     font.pointSize: sectionNamePointSize
-                    color:palette.text
+                    color:control.palette.text
                 }
                 Rectangle{
                     //anchors.fill:advlistView
-                    border.color: palette.mid
-                    color: palette.alternateBase
+                    border.color: control.palette.mid
+                    color: control.palette.alternateBase
                     radius: rect.radius
                     z:-1
                     implicitWidth:advListView.width+ 2*rect.baseMargin
