@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Dialogs 1.2
+//import Qt.labs.platform 1.1
 
 Rectangle{
     id:root
@@ -20,9 +21,13 @@ Rectangle{
     function cancel(){
         value=model.display
     }
+    Control{
+        id:control
+    }
+
     //border.width: hovered?1.2:0
-    border.color: hovered?palette.highlight:palette.mid
-    border.width: 2
+    border.color: hovered?control.palette.highlight:control.palette.mid
+    border.width: 1
     color:value
     implicitWidth:50
     implicitHeight: 20
@@ -30,7 +35,7 @@ Rectangle{
     ColorDialog {
         id: colorDialog
         title: qsTr("Please choose a color")
-        showAlphaChannel: false
+        //showAlphaChannel: true
         // x: (window.width - width) / 2
         // y: (window.height - height) / 2
 
