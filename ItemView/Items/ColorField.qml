@@ -35,7 +35,7 @@ Rectangle{
     ColorDialog {
         id: colorDialog
         title: qsTr("Please choose a color")
-        //showAlphaChannel: true
+        showAlphaChannel: true
         // x: (window.width - width) / 2
         // y: (window.height - height) / 2
 

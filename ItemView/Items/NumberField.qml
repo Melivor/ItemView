@@ -7,7 +7,7 @@ TextField
     implicitWidth: 110
     inputMethodHints: Qt.ImhFormattedNumbersOnly
     validator: DoubleValidator{}
-    text:Number(model.display).toLocaleString(Qt.locale(),"f")
+    text:Number(model.display).toLocaleString(Qt.locale(),"f",3)
     anchors.right: parent.right
     function post(){
         model.display=Number.fromLocaleString(text)

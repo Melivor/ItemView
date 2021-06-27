@@ -17,5 +17,8 @@
         <file>ItemView/Items/Slider.qml</file>
         <file>ItemView/Items/SliderInt.qml</file>
         <file>ItemView/Items/BoundIntNumberField.qml</file>
+        <file>ItemView/Items/TextFieldWithErrorWarning.qml</file>
+        <file>ItemView/Items/SliderMinMax.qml</file>
+        <file>ItemView/Items/RangeSlider.qml</file>
     </qresource>
 </RCC>
