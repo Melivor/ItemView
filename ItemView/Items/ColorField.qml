@@ -60,7 +60,6 @@ Rectangle{
                  if(editable){
                     colorDialog.color=model.display
                     colorDialog.open()
-                     console.log("Editing color !")
                  }
 
              }

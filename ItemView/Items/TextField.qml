@@ -4,7 +4,7 @@ import QtQuick.Controls 2.13
 TextField {
 
     implicitHeight: 30
-
+    //anchors.rightMargin: 10
     property var model:parent.dmodel
     property bool editable: model.flags&Qt.ItemIsEditable
     // enabled: parent.delegateModel.flags&Qt.ItemIsEnabled

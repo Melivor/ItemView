@@ -11,7 +11,7 @@ Rectangle{
     signal editingSetting(var index)
     color:control.palette.base
     border.color: control.palette.mid
-    radius: 5
+    radius: 0
     implicitWidth: 200
     implicitHeight: 500
     property int sectionNamePointSize: 8
@@ -42,6 +42,7 @@ Rectangle{
             //Layout.preferredWidth:  childrenRect.width
             implicitHeight: childrenRect.height
             implicitWidth: childrenRect.width
+
             Column{
                 spacing: rect.baseMargin
                 Text{
@@ -65,7 +66,7 @@ Rectangle{
                         x:rect.baseMargin
                         height: Math.min(contentHeight,root.height-100)
                         model:modelData
-                        width: Math.min(350,rect.width-rect.baseMargin*4)
+                        width:rect.width-rect.baseMargin*5// Math.min(350,rect.width-rect.baseMargin*4)
                         Component.onCompleted: advListView.editingSetting.connect(rect.editingSetting)
                     }
                 }

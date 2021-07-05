@@ -9,6 +9,7 @@ TextField
     validator: DoubleValidator{}
     text:Number(model.display).toLocaleString(Qt.locale(),"f",3)
     anchors.right: parent.right
+    //anchors.rightMargin: 10
     function post(){
         model.display=Number.fromLocaleString(text)
     }

@@ -24,7 +24,7 @@ ListView {
         id:containerItem
         enabled: loader.item
         visible: enabled
-        width: parent?parent.width:0
+        width: listView?listView.width:0
         height: enabled?loader.item.implicitHeight+10:0
         MouseArea{
             anchors.fill:containerItem
@@ -65,6 +65,8 @@ ListView {
             }
             Loader{
                 id:loader
+
+                Layout.preferredWidth: containerItem.width-120
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
                 source:model.flags&Qt.ItemIsEnabled?"Items/"+model.qmlFile:""
 
